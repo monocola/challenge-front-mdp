@@ -1,0 +1,32 @@
+<h3>Panel de Productos</h3>
+<br/>
+<div style="text-align: right;">
+    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Producto</button>
+</div>
+<br/>
+<app-new-product></app-new-product>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">N°</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productList.products; let indice=index" >
+        <th scope="row">{{ indice + 1 }}</th>
+        <td>{{ p.name }}</td>
+        <td>{{ p.categoryName }}</td>
+        <td>{{ p.unityPrice }}</td>
+        <td>{{ p.state }}</td>
+        <td><button type="button" class="btn btn-sm btn-primary">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="productList.length == 0" class="alert alert-warning" role="alert">
+    No existen productos que mostrar. :(
+  </div>

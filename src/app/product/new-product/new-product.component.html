@@ -1,0 +1,41 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <form>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Producto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre:</label>
+                  <input type="text" class="form-control" required >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Categoría:</label>
+                    <select name="categry" class="form-control" required>
+                        <option>Galletas</option>
+                        <option>Caramelos</option>
+                        <option>Tartas</option>
+                        <option>Postres</option>
+                        <option>Bebidas</option>
+                      </select>
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Precio Unitario:</label>
+                  <input type="number" class="form-control" step="any" required>
+                </div>
+             
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+      </form> 
+    </div>
+  </div>

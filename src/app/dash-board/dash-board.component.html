@@ -1,0 +1,33 @@
+
+<h3>Panel de Ordenes</h3>
+<br/>
+<div style="text-align: right;">
+    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Orden</button>
+</div>
+<br/>
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">N°</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Total</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of orderList.orders; let indice=index" >
+        <th scope="row">{{ indice + 1 }}</th>
+        <td>{{ p.customer }}</td>
+        <td>{{ p.state }}</td>
+        <td>{{ p.createdAt }}</td>
+        <td>{{ p.total }}</td>
+        <td><button type="button" class="btn btn-sm btn-primary">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="orderList.length == 0" class="alert alert-warning" role="alert">
+    No existen productos que mostrar. :(
+  </div>
