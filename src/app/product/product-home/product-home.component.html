@@ -22,11 +22,9 @@
         <td>{{ p.name }}</td>
         <td>{{ p.categoryName }}</td>
         <td>{{ p.unityPrice }}</td>
-        <td>{{ p.state }}</td>
+        <td *ngIf="p.state == 1 ">Activo</td>
+        <td *ngIf="p.state == 2 ">Inactivo</td>
         <td><button type="button" class="btn btn-sm btn-primary">Editar</button></td>
       </tr>
     </tbody>
   </table>
-  <div *ngIf="productList.length == 0" class="alert alert-warning" role="alert">
-    No existen productos que mostrar. :(
-  </div>

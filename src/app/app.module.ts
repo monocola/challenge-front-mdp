@@ -13,13 +13,15 @@ import { NotFoundService } from './services/not-found.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuNavComponent } from './menu/menu-nav/menu-nav.component';
 import { NewProductComponent } from './product/new-product/new-product.component';
+import { StatesPipe } from './publics/states.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     DashBoardComponent,
-    MenuNavComponent
+    MenuNavComponent,
+    StatesPipe
     
   ],
   imports: [

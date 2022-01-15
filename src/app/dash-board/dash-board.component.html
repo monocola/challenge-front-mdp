@@ -2,7 +2,7 @@
 <h3>Panel de Ordenes</h3>
 <br/>
 <div style="text-align: right;">
-    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Orden</button>
+    <button type="button" class="btn btn-sm btn-primary" routerLink="/order/new" >Crear Orden</button>
 </div>
 <br/>
 
@@ -18,13 +18,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let p of orderList.orders; let indice=index" >
+      <tr *ngFor="let o of orderList.orders; let indice=index" >
         <th scope="row">{{ indice + 1 }}</th>
-        <td>{{ p.customer }}</td>
-        <td>{{ p.state }}</td>
-        <td>{{ p.createdAt }}</td>
-        <td>{{ p.total }}</td>
-        <td><button type="button" class="btn btn-sm btn-primary">Editar</button></td>
+        <td>{{ o.customer }}</td>
+        <td>{{ o.state  | states }}</td>
+        <td>{{ o.createdAt | date:'medium' }}</td>
+        <td>{{ o.total }}</td>
+        <td><button type="button" class="btn btn-sm btn-primary" routerLink="/order/{{ o.id}}">Editar</button></td>
       </tr>
     </tbody>
   </table>

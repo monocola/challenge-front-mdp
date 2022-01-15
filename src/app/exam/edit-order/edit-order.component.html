@@ -1,0 +1,86 @@
+<h3>Editar Orden</h3>
+<br />
+<h4>Orden N°</h4>
+<br />
+<br />
+    <h4>Cliente: {{ orderDetail.customer }} </h4>
+    <h4>Estado: {{ orderDetail.state }} </h4>
+    <h4>Fecha: {{ orderDetail.createdAt | date:'medium' }} </h4>
+
+
+<div style="text-align: right;">
+    <button type="button" class="btn btn-sm btn-secundary" routerLink="/">Volver</button>
+</div>
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio Unitario</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of orderDetail.orderDetail; let indice = index" >
+        <td>{{ indice + 1 }}</td>
+        <td>{{ o.createdAt | date:'medium' }}</td>
+        <td>{{ o.quantity }}</td>
+        <td>{{ o.unityPrice }}</td>
+        <td>{{ o.totalAmount }}</td>
+        <td>
+            <button style="margin-right: 10px;" type="button" class="btn btn-sm btn-primary">Editar</button>
+            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="text-align: right;">
+    <button type="button" class="btn btn-sm btn-primary" routerLink="/new-order">Agregar Producto</button>
+</div>
+<div style="text-align: right;">
+    <table >
+        <tbody>
+            <tr>
+                <td class="negrita" colspan="2">SubTotal:</td>
+                <td></td>
+            </tr>
+            <tr style="text-align: center;">
+                <td class="negrita" colspan="3">Impuestos</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Impuesto municipal</td>
+                <td> $. {{ orderDetail.totalCityTax }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Impuesto del condado:</td>
+                <td> $. {{ orderDetail.totalCountTax }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Impuesto estatal:</td>
+                <td> $. {{ orderDetail.totalStateTax }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Impuesto federal:</td>
+                <td> $. {{ orderDetail.totalFederalTax }}</td>
+            </tr>
+            <tr>
+                <td class="negrita" colspan="2">Total Impuestos:</td>
+                <td> $. {{ orderDetail.totalTax }}</td>
+            </tr>
+            <tr>
+                <td class="negrita" colspan="2">Total Orden:</td>
+                <td> $. {{ orderDetail.total }} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

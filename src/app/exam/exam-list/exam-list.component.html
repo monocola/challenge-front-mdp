@@ -1,14 +1,29 @@
-<p>
-  exam-list works!
-</p>
-<div>
-  <input type="text" [(ngModel)]="query" (keyup.enter)="doSearch()">
-  <button (click)="doSearch()">Search</button>
-</div>
-<p *ngIf="searchKey">
-  Search key: {{ searchKey }}
-</p>
 
-<p *ngIf="page">
-  Page: {{ page }}
-</p>
+<h3>Panel de Ordenes</h3>
+<br/>
+<div style="text-align: right;">
+    <button type="button" class="btn btn-sm btn-primary" routerLink="/new-order" >Crear Orden</button>
+</div>
+<br/>
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">N°</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Total</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><button type="button" class="btn btn-sm btn-primary">Editar</button></td>
+    </tbody>
+  </table>
+ 

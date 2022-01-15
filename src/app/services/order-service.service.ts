@@ -15,7 +15,19 @@ export class OrderServiceService {
   constructor(private http: HttpClient) { }
 
   getOrders(): Observable<any> {
-    return this.http.get(`${baseEndpointBackend}`, { headers: httpHeaders }).pipe(
+    return this.http.get(`${baseEndpointBackend}/`, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        return throwError(e);
+        if (e.status == 404) {
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
+  }
+
+  getOrderById(orderId: string): Observable<any> {
+    return this.http.get(`${baseEndpointBackend}/${orderId}`, { headers: httpHeaders }).pipe(
       catchError(e => {
         return throwError(e);
         if (e.status == 404) {
