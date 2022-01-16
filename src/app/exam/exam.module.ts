@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NewOrderComponent } from './new-order/new-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { SelectProductsComponent } from './select-products/select-products.component';
+import { AddAmountProductComponent } from './add-amount-product/add-amount-product.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { SelectProductsComponent } from './select-products/select-products.compo
     FormsModule,
     ExamRoutingModule
   ],
-  declarations: [ExamComponent, ExamDetailComponent, ExamListComponent, NewOrderComponent, EditOrderComponent, SelectProductsComponent]
+  declarations: [ExamComponent, ExamDetailComponent, ExamListComponent, NewOrderComponent, EditOrderComponent, SelectProductsComponent, AddAmountProductComponent]
 })
 export class ExamModule { }

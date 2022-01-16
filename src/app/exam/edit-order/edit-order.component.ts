@@ -12,15 +12,16 @@ export class EditOrderComponent implements OnInit {
 
   orderDetail:any;
   productList:any;
+  id:string;
   constructor(public orderService: OrderServiceService, 
     private route: ActivatedRoute,
     public productService: ProductServiceService) { }
 
   ngOnInit(): void {
 
-    const id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
  
-    this.getOrderById(id);
+    this.getOrderById(this.id);
   }
 
   getOrderById(orderId: string){

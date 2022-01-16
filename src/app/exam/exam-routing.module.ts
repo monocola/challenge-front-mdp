@@ -5,6 +5,8 @@ import { ExamDetailComponent } from './exam-detail/exam-detail.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
 import { NewOrderComponent } from './new-order/new-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
+import { SelectProductsComponent } from './select-products/select-products.component';
+import { AddAmountProductComponent } from './add-amount-product/add-amount-product.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,16 @@ const routes: Routes = [
       {
         path: ':id',
         component: EditOrderComponent,
+      }
+      ,
+      {
+        path: 'add-product/:id',
+        component: SelectProductsComponent,
+      }
+      ,
+      {
+        path: 'add-product/amount/:id/:ido',
+        component: AddAmountProductComponent,
       }
     ]
   }
