@@ -27,6 +27,17 @@ export class ProductHomeComponent implements OnInit {
       this.productList = data;
       this.productSize = this.productList.length;
       console.log(this.productList);
+    },(error: HttpErrorResponse) => {
+      Swal.fire({
+        allowOutsideClick: false,
+        allowEscapeKey: true,
+        showCancelButton: false,
+        showConfirmButton: true,
+        icon: 'error',
+        title: '¡Lo Sentimos!',
+        text: '¡En este momento no podemos mostrarle los productos!'
+      }).then((resp) => {
+      })
     });
   }
 

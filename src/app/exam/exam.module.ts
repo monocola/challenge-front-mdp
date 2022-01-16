@@ -10,6 +10,7 @@ import { NewOrderComponent } from './new-order/new-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { SelectProductsComponent } from './select-products/select-products.component';
 import { AddAmountProductComponent } from './add-amount-product/add-amount-product.component';
+import { EditProductOrderdetailComponent } from './edit-product-orderdetail/edit-product-orderdetail.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { AddAmountProductComponent } from './add-amount-product/add-amount-produ
     FormsModule,
     ExamRoutingModule
   ],
-  declarations: [ExamComponent, ExamDetailComponent, ExamListComponent, NewOrderComponent, EditOrderComponent, SelectProductsComponent, AddAmountProductComponent]
+  declarations: [ExamComponent, ExamDetailComponent, ExamListComponent, NewOrderComponent, EditOrderComponent, SelectProductsComponent, AddAmountProductComponent, EditProductOrderdetailComponent]
 })
 export class ExamModule { }

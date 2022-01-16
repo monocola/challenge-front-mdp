@@ -15,7 +15,7 @@
         <th scope="col">Estado</th>
         <th scope="col">Fecha</th>
         <th scope="col">Total</th>
-        <th scope="col">Acciones</th>
+        <th style="text-align: center;" scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -26,8 +26,8 @@
         <td>{{ o.state  | states }}</td>
         <td>{{ o.createdAt | date:'medium' }}</td>
         <td> {{ o.total | currency  }}</td>
-        <td *ngIf="o.state == 1"><button type="button" class="btn btn-sm btn-primary" routerLink="/order/{{ o.id}}">Editar</button></td>
-        <td *ngIf="o.state == 2 || o.state == 3"><button type="button" class="btn btn-sm btn-success" routerLink="/order/{{ o.id}}">Ver</button></td>
+        <td style="text-align: center;" *ngIf="o.state == 1"><button type="button" class="btn btn-sm btn-primary" routerLink="/order/{{ o.id}}">Editar</button></td>
+        <td style="text-align: center;" *ngIf="o.state == 2 || o.state == 3"><button type="button" class="btn btn-sm btn-success" routerLink="/order/{{ o.id}}">Ver</button></td>
       </tr>
     </tbody>
   </table>

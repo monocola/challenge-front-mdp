@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -27,6 +28,17 @@ export class DashBoardComponent implements OnInit {
       this.orderList = data;
       this.productSize = this.orderList.length;
       console.log(this.orderList);
+    },(error: HttpErrorResponse) => {
+      Swal.fire({
+        allowOutsideClick: false,
+        allowEscapeKey: true,
+        showCancelButton: false,
+        showConfirmButton: true,
+        icon: 'error',
+        title: '¡Lo Sentimos!',
+        text: '¡En este momento no podemos mostrarle las órdenes!'
+      }).then((resp) => {
+      })
     });
   }
 

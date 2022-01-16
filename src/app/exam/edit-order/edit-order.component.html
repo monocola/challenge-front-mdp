@@ -29,7 +29,7 @@
     <tbody>
         <tr *ngFor="let o of orderDetail.orderDetail; let indice = index" >
         <td>{{ indice + 1 }}</td>
-        <td>{{ o.name  }}</td>
+        <td>{{ o.productName  }}</td>
         <td style="text-align: center;">{{ o.quantity }}</td>
         <td> {{ o.unityPrice | currency  }}</td>
         <td> {{ o.totalAmount | currency  }}</td>
@@ -44,47 +44,50 @@
 <div *ngIf="orderDetail.state == 1" style="text-align: right;">
     <button type="button" class="btn btn-sm btn-primary" routerLink="/order/add-product/{{ id }}">Agregar Producto</button>
 </div>
-<div style="text-align: right;">
-    <table >
-        <tbody>
-            <tr>
-                <td class="negrita" colspan="2">SubTotal:</td>
-                <td> {{ orderDetail.subTotal | currency }}</td>
-            </tr>
-            <tr style="text-align: center;">
-                <td class="negrita" colspan="3">Impuestos</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Impuesto municipal</td>
-                <td>  {{ orderDetail.totalCityTax | currency  }}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Impuesto del condado:</td>
-                <td> {{ orderDetail.totalCountTax  | currency }}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Impuesto estatal:</td>
-                <td> {{ orderDetail.totalStateTax | currency  }}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Impuesto federal:</td>
-                <td>  {{ orderDetail.totalFederalTax | currency  }}</td>
-            </tr>
-            <tr>
-                <td class="negrita" colspan="2">Total Impuestos:</td>
-                <td> {{ orderDetail.totalTax | currency  }}</td>
-            </tr>
-            <tr>
-                <td class="negrita" colspan="2">Total Orden:</td>
-                <td> {{ orderDetail.total | currency  }} </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div style="text-align: right;">
+        <table >
+            <tbody>
+                <tr>
+                    <td class="negrita" colspan="2">SubTotal:</td>
+                    <td> {{ orderDetail.subTotal | currency }}</td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td class="negrita" colspan="3">Impuestos</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Impuesto municipal</td>
+                    <td>  {{ orderDetail.totalCityTax | currency  }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Impuesto del condado:</td>
+                    <td> {{ orderDetail.totalCountTax  | currency }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Impuesto estatal:</td>
+                    <td> {{ orderDetail.totalStateTax | currency  }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Impuesto federal:</td>
+                    <td>  {{ orderDetail.totalFederalTax | currency  }}</td>
+                </tr>
+                <tr>
+                    <td class="negrita" colspan="2">Total Impuestos:</td>
+                    <td> {{ orderDetail.totalTax | currency  }}</td>
+                </tr>
+                <tr>
+                    <td class="negrita" colspan="2">Total Orden:</td>
+                    <td> {{ orderDetail.total | currency  }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 <br/>
 <div *ngIf="orderDetail.state == 1" class="modal-footer">
     <button type="button" (click)="completeOrder()" class="btn btn-success">Completar Orden</button>
