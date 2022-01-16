@@ -11,7 +11,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Categoria</th>
         <th scope="col">Precio</th>
-        <th scope="col">Acciones</th>
+        <th style="text-align: center;" scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -20,9 +20,9 @@
         <th scope="row">{{ indice + 1 }}</th>
         <td >{{ p.name }} </td>
         <td>{{ p.categoryName }}</td>
-        <td>$. {{ p.unityPrice }} </td>
-        <td>
-          <button routerLink="/order/add-product/amount/{{ p.id }}/{{ id }}" type="button" class="btn btn-sm btn-success">Elegir</button>
+        <td>{{ p.unityPrice | currency }} </td>
+        <td style="text-align: center;">
+          <button routerLink="/order/add-product/amount/{{ p.id }}/{{ id }}" type="button" class="btn btn-sm btn-success">Elegir Producto</button>
         </td>
         </tr>
     </tbody>

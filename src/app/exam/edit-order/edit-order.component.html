@@ -1,6 +1,6 @@
 <h3>Editar Orden</h3>
 <br />
-<h4>Orden N°</h4>
+<h4>Orden N°: {{ orderDetail.orderNumber }} </h4>
 <br />
 <br />
     <h4>Cliente: {{ orderDetail.customer }} </h4>
@@ -20,28 +20,28 @@
         <tr>
             <th scope="col">N°</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Cantidad</th>
+            <th style="text-align: center;" scope="col">Cantidad</th>
             <th scope="col">Precio Unitario</th>
             <th scope="col">Costo</th>
-            <th scope="col">Acciones</th>
+            <th style="text-align: center;" *ngIf="orderDetail.state == 1 " scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let o of orderDetail.orderDetail; let indice = index" >
         <td>{{ indice + 1 }}</td>
-        <td>{{ o.createdAt | date:'medium' }}</td>
-        <td>{{ o.quantity }}</td>
-        <td>{{ o.unityPrice }}</td>
-        <td>{{ o.totalAmount }}</td>
-        <td>
-            <button style="margin-right: 10px;" type="button" class="btn btn-sm btn-primary">Editar</button>
-            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+        <td>{{ o.name  }}</td>
+        <td style="text-align: center;">{{ o.quantity }}</td>
+        <td> {{ o.unityPrice | currency  }}</td>
+        <td> {{ o.totalAmount | currency  }}</td>
+        <td  style="text-align: center;" *ngIf="orderDetail.state == 1">
+            <button style="margin-right: 10px;" type="button" class="btn btn-sm btn-primary" >Editar</button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="deleteProduct(o.orderDetailId)">Eliminar</button>
         </td>
         </tr>
     </tbody>
 </table>
 
-<div style="text-align: right;">
+<div *ngIf="orderDetail.state == 1" style="text-align: right;">
     <button type="button" class="btn btn-sm btn-primary" routerLink="/order/add-product/{{ id }}">Agregar Producto</button>
 </div>
 <div style="text-align: right;">
@@ -49,7 +49,7 @@
         <tbody>
             <tr>
                 <td class="negrita" colspan="2">SubTotal:</td>
-                <td> $. {{ orderDetail.subTotal }}</td>
+                <td> {{ orderDetail.subTotal | currency }}</td>
             </tr>
             <tr style="text-align: center;">
                 <td class="negrita" colspan="3">Impuestos</td>
@@ -57,32 +57,42 @@
             <tr>
                 <td></td>
                 <td>Impuesto municipal</td>
-                <td> $. {{ orderDetail.totalCityTax }}</td>
+                <td>  {{ orderDetail.totalCityTax | currency  }}</td>
             </tr>
             <tr>
                 <td></td>
                 <td>Impuesto del condado:</td>
-                <td> $. {{ orderDetail.totalCountTax }}</td>
+                <td> {{ orderDetail.totalCountTax  | currency }}</td>
             </tr>
             <tr>
                 <td></td>
                 <td>Impuesto estatal:</td>
-                <td> $. {{ orderDetail.totalStateTax }}</td>
+                <td> {{ orderDetail.totalStateTax | currency  }}</td>
             </tr>
             <tr>
                 <td></td>
                 <td>Impuesto federal:</td>
-                <td> $. {{ orderDetail.totalFederalTax }}</td>
+                <td>  {{ orderDetail.totalFederalTax | currency  }}</td>
             </tr>
             <tr>
                 <td class="negrita" colspan="2">Total Impuestos:</td>
-                <td> $. {{ orderDetail.totalTax }}</td>
+                <td> {{ orderDetail.totalTax | currency  }}</td>
             </tr>
             <tr>
                 <td class="negrita" colspan="2">Total Orden:</td>
-                <td> $. {{ orderDetail.total }} </td>
+                <td> {{ orderDetail.total | currency  }} </td>
             </tr>
         </tbody>
     </table>
 </div>
-
+<br/>
+<div *ngIf="orderDetail.state == 1" class="modal-footer">
+    <button type="button" (click)="completeOrder()" class="btn btn-success">Completar Orden</button>
+    <button type="submit" (click)="rejeactOrder()" class="btn btn-danger">Rechazar Orden</button>
+</div>
+<div *ngIf="orderDetail.state == 2" class="modal-footer">
+    <button type="button" class="btn btn-success" disabled>Orden Completada</button>
+</div>
+<div *ngIf="orderDetail.state == 3" class="modal-footer">
+    <button type="button" class="btn btn-danger" disabled>Orden Rechazada</button>
+</div>

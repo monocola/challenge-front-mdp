@@ -10,6 +10,7 @@
     <thead>
       <tr>
         <th scope="col">N°</th>
+        <th scope="col">N° Orden</th>
         <th scope="col">Cliente</th>
         <th scope="col">Estado</th>
         <th scope="col">Fecha</th>
@@ -19,12 +20,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let o of orderList.orders; let indice=index" >
-        <th scope="row">{{ indice + 1 }}</th>
+        <td scope="row">{{ indice + 1 }}</td>
+        <td>{{ o.orderNumber }}</td>
         <td>{{ o.customer }}</td>
         <td>{{ o.state  | states }}</td>
         <td>{{ o.createdAt | date:'medium' }}</td>
-        <td>{{ o.total }}</td>
-        <td><button type="button" class="btn btn-sm btn-primary" routerLink="/order/{{ o.id}}">Editar</button></td>
+        <td> {{ o.total | currency  }}</td>
+        <td *ngIf="o.state == 1"><button type="button" class="btn btn-sm btn-primary" routerLink="/order/{{ o.id}}">Editar</button></td>
+        <td *ngIf="o.state == 2 || o.state == 3"><button type="button" class="btn btn-sm btn-success" routerLink="/order/{{ o.id}}">Ver</button></td>
       </tr>
     </tbody>
   </table>

@@ -21,7 +21,7 @@
         <th scope="row">{{ indice + 1 }}</th>
         <td>{{ p.name }}</td>
         <td>{{ p.categoryName }}</td>
-        <td>{{ p.unityPrice }}</td>
+        <td>{{ p.unityPrice | currency }}</td>
         <td *ngIf="p.state == 1 ">Activo</td>
         <td *ngIf="p.state == 2 ">Inactivo</td>
         <td style="text-align: center;"><button routerLink="/product/{{ p.id }}" style="margin-right: 20px;" type="button" class="btn btn-sm btn-primary">Editar</button>

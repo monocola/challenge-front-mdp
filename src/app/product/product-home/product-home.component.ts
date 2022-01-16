@@ -43,7 +43,12 @@ export class ProductHomeComponent implements OnInit {
       if (result.isConfirmed) {
         this.productService.deleteProductById(productId).subscribe(
           (success) => {
-           
+            Swal.fire(
+              'Eliminado!',
+              'El producto ha sido eliminado',
+              'success'
+            )
+            this.getProductList();
           },
           (error: HttpErrorResponse) => {
             if(error.status == 500){
@@ -61,11 +66,7 @@ export class ProductHomeComponent implements OnInit {
             }
            
           });
-        Swal.fire(
-          'Eliminado!',
-          'El producto ha sido eliminado',
-          'success'
-        )
+       
         
       }
       

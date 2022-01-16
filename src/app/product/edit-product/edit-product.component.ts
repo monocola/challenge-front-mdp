@@ -36,7 +36,20 @@ export class EditProductComponent implements OnInit {
       this.selectCategoryName = data.categoryName;
       this.selectUnityPrice = data.unityPrice;
       this.date = data.createdAt;
+    },(error: HttpErrorResponse) => {
+      Swal.fire({
+        allowOutsideClick: false,
+        allowEscapeKey: true,
+        showCancelButton: false,
+        showConfirmButton: true,
+        icon: 'error',
+        title: '¡Lo Sentimos!',
+        text: '¡El producto no existe'
+      }).then((resp) => {
+        this.router.navigate(['/product']);
+      })
     });
+   
   }
 
   ngSubmit() {

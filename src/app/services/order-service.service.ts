@@ -50,4 +50,28 @@ export class OrderServiceService {
       })
     );
   }
+
+  completeOrder(orderId: string): Observable<any> {
+    return this.http.put(`${baseEndpointBackend}/completada/${orderId}`, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        return throwError(e);
+        if (e.status == 404) {
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
+  }
+
+  rejectOrder(orderId: string): Observable<any> {
+    return this.http.put(`${baseEndpointBackend}/rechazada/${orderId}`, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        return throwError(e);
+        if (e.status == 404) {
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
+  }
 }

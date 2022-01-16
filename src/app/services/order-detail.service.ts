@@ -27,4 +27,18 @@ export class OrderDetailService {
     );
   }
 
+  deleteProductToOrderDetail(productId: string): Observable<any> {
+    return this.http.delete(`${baseEndpointBackend}/${productId}`, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        return throwError(e);
+        if (e.status == 500) {
+          
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
+  }
+
+
 }
