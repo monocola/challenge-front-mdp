@@ -1,0 +1,28 @@
+<br/>
+<h4>Editar Producto</h4>
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="selectNameProduct" name="selectNameProduct" required
+            placeholder="ingrese nombre">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Categoría</label>
+        <input type="text" class="form-control" [(ngModel)]="selectCategoryName" name="selectCategoryName"
+            placeholder="ingrese categoría">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Precio</label>
+        <input type="number" class="form-control" step="any" [(ngModel)]="selectUnityPrice" name="selectUnityPrice"
+            placeholder="ingrese monto">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Fecha</label>
+        <input type="text" class="form-control"  value="{{ date | date:'medium'}}" disabled>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" routerLink="/product">Cancelar</button>
+        <button type="submit" (click)="ngSubmit()" class="btn btn-primary">Actualizar</button>
+    </div>
+</form>

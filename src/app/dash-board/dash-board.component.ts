@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Order } from '../models/order.model';
 import { OrderServiceService } from '../services/order-service.service';
 
 @Component({
@@ -10,8 +13,10 @@ export class DashBoardComponent implements OnInit {
 
   orderList:any;
   productSize: number;
+  newOrderId: any;
 
-  constructor(public orderService: OrderServiceService) { }
+  constructor(public orderService: OrderServiceService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getProductList();
@@ -23,6 +28,36 @@ export class DashBoardComponent implements OnInit {
       this.productSize = this.orderList.length;
       console.log(this.orderList);
     });
+  }
+
+  createOrder(){
+
+    const order: Order = {}
+
+    Swal.fire({
+      title: '¿Está seguro que desea crear una orden?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, correcto!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.orderService.createOrder(order).subscribe(
+          (success) => {
+            this.newOrderId = success.id;
+            this.router.navigate(['/order/' + this.newOrderId ])
+          });
+
+        Swal.fire(
+          'Orden Creada!',
+          'La orden ha sido creada con éxito.',
+          'success'
+        )
+      }
+    })
+
+    
   }
 
 }

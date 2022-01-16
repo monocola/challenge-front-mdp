@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuNavComponent } from './menu/menu-nav/menu-nav.component';
 import { NewProductComponent } from './product/new-product/new-product.component';
 import { StatesPipe } from './publics/states.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { StatesPipe } from './publics/states.pipe';
     ProductRoutingModule,
     ExamModule,
     ProductModule,
+    ReactiveFormsModule,
     // the root routing module must on the end of this array
     AppRoutingModule
   ],

@@ -4,7 +4,9 @@
 <br />
 <br />
     <h4>Cliente: {{ orderDetail.customer }} </h4>
-    <h4>Estado: {{ orderDetail.state }} </h4>
+    <h4 *ngIf="orderDetail.state == 1">Estado: Pendiente </h4>
+    <h4 *ngIf="orderDetail.state == 2">Estado: Completada </h4>
+    <h4 *ngIf="orderDetail.state == 3">Estado: Rechazada </h4>
     <h4>Fecha: {{ orderDetail.createdAt | date:'medium' }} </h4>
 
 
@@ -40,14 +42,14 @@
 </table>
 
 <div style="text-align: right;">
-    <button type="button" class="btn btn-sm btn-primary" routerLink="/new-order">Agregar Producto</button>
+    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Agregar Producto</button>
 </div>
 <div style="text-align: right;">
     <table >
         <tbody>
             <tr>
                 <td class="negrita" colspan="2">SubTotal:</td>
-                <td></td>
+                <td> $. {{ orderDetail.subTotal }}</td>
             </tr>
             <tr style="text-align: center;">
                 <td class="negrita" colspan="3">Impuestos</td>
@@ -83,4 +85,5 @@
         </tbody>
     </table>
 </div>
+<app-select-products></app-select-products>
 

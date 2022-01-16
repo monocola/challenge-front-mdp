@@ -24,7 +24,9 @@
         <td>{{ p.unityPrice }}</td>
         <td *ngIf="p.state == 1 ">Activo</td>
         <td *ngIf="p.state == 2 ">Inactivo</td>
-        <td><button type="button" class="btn btn-sm btn-primary">Editar</button></td>
+        <td style="text-align: center;"><button routerLink="/product/{{ p.id }}" style="margin-right: 20px;" type="button" class="btn btn-sm btn-primary">Editar</button>
+          <button type="button" (click)="deleteProduct(p.id)" class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>

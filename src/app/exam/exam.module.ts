@@ -8,6 +8,7 @@ import { ExamListComponent } from './exam-list/exam-list.component';
 import { FormsModule } from '@angular/forms';
 import { NewOrderComponent } from './new-order/new-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
+import { SelectProductsComponent } from './select-products/select-products.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     FormsModule,
     ExamRoutingModule
   ],
-  declarations: [ExamComponent, ExamDetailComponent, ExamListComponent, NewOrderComponent, EditOrderComponent]
+  declarations: [ExamComponent, ExamDetailComponent, ExamListComponent, NewOrderComponent, EditOrderComponent, SelectProductsComponent]
 })
 export class ExamModule { }

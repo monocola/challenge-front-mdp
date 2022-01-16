@@ -1,8 +1,8 @@
-export interface Products{
-    id: string;
+export interface Product{
+    id?: string;
     name: string;
     categoryName: string;
     unityPrice: number;
-    state: number;
-    createdAt: string;
+    state?: number;
+    createdAt?: string;
 }

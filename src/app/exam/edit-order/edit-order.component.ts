@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { OrderServiceService } from 'src/app/services/order-service.service';
+import { ProductServiceService } from 'src/app/services/product-service.service';
 
 @Component({
   selector: 'app-edit-order',
@@ -9,12 +11,16 @@ import { OrderServiceService } from 'src/app/services/order-service.service';
 export class EditOrderComponent implements OnInit {
 
   orderDetail:any;
-  orderId1 = "ac1dd001-7e5d-1024-817e-5e27712e0002";
-  constructor(public orderService: OrderServiceService) { }
+  productList:any;
+  constructor(public orderService: OrderServiceService, 
+    private route: ActivatedRoute,
+    public productService: ProductServiceService) { }
 
   ngOnInit(): void {
-   
-    this.getOrderById(this.orderId1);
+
+    const id = this.route.snapshot.paramMap.get('id');
+ 
+    this.getOrderById(id);
   }
 
   getOrderById(orderId: string){
@@ -23,5 +29,7 @@ export class EditOrderComponent implements OnInit {
       console.log(this.orderDetail);
     });
   }
+
+ 
 
 }
