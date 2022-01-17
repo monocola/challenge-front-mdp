@@ -1,3 +1,6 @@
+import { port_backend } from "src/app/publics/urls";
+
 export const environment = {
-  production: true
+  production: false,
+  port_backend: 'http://localhost:8080'
 };

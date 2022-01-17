@@ -3,10 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ExamRoutingModule } from './exam-routing.module';
 import { ExamComponent } from './exam.component';
-import { ExamDetailComponent } from './exam-detail/exam-detail.component';
-import { ExamListComponent } from './exam-list/exam-list.component';
 import { FormsModule } from '@angular/forms';
-import { NewOrderComponent } from './new-order/new-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { SelectProductsComponent } from './select-products/select-products.component';
 import { AddAmountProductComponent } from './add-amount-product/add-amount-product.component';
@@ -18,6 +15,6 @@ import { EditProductOrderdetailComponent } from './edit-product-orderdetail/edit
     FormsModule,
     ExamRoutingModule
   ],
-  declarations: [ExamComponent, ExamDetailComponent, ExamListComponent, NewOrderComponent, EditOrderComponent, SelectProductsComponent, AddAmountProductComponent, EditProductOrderdetailComponent]
+  declarations: [ExamComponent,  EditOrderComponent, SelectProductsComponent, AddAmountProductComponent, EditProductOrderdetailComponent]
 })
 export class ExamModule { }

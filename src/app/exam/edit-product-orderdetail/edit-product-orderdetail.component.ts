@@ -75,7 +75,7 @@ export class EditProductOrderdetailComponent implements OnInit {
 
   updateOrderProduct(orderD: OrderDetail) {
     Swal.fire({
-      title: '¿Está seguro que desea Actualizar el monto del prodducto?',
+      title: '¿Está seguro que desea Actualizar el monto del producto?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
