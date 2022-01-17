@@ -1,1 +1,19 @@
-<p>edit-product-orderdetail works!</p>
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Producto:</label>
+      <input type="text" class="form-control" [(ngModel)]="selectNameProduct" name="selectNameProduct" disabled>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Precio Unitario($.):</label>
+      <input type="text" class="form-control" [(ngModel)]="selectUnityPrice" name="selectUnityPrice" disabled>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Ingrese Cantidad:</label>
+      <input type="number" class="form-control" step="any" [(ngModel)]="selectAmount" name="selectAmount">
+    </div>
+   
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="back()" data-dismiss="modal">Volver</button>
+      <button type="button" (click)="updateProduct()" class="btn btn-primary">Actualizar Cantidad</button>
+    </div>
+  </form>

@@ -40,5 +40,29 @@ export class OrderDetailService {
     );
   }
 
+  getOrderDetailById(orderDetailId: string): Observable<any> {
+    return this.http.get(`${baseEndpointBackend}/${orderDetailId}`, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        return throwError(e);
+        if (e.status == 404) {
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
+  }
+
+  updateProductOrderDetail(orderDetail: OrderDetail): Observable<any> {
+    return this.http.put(`${baseEndpointBackend}`,orderDetail, { headers: httpHeaders }).pipe(
+      catchError(e => {
+        return throwError(e);
+        if (e.status == 404) {
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
+  }
+
 
 }

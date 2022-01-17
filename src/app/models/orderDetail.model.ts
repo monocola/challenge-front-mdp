@@ -1,5 +1,11 @@
 export interface OrderDetail {
-    orderId: string;
-    productId: string;
-    quantity: number;
+    orderId?: string;
+    orderDetailId?: string;
+    productId?: string;
+    productName?: string;
+    quantity?: number;
+    unityPrice?: string;
+    totalAmount?: string;
+    createdAt?: string;
+    id?: string;
 }

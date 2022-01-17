@@ -137,6 +137,10 @@ export class EditOrderComponent implements OnInit {
 
   }
 
+  editProductOrder(orderDetailId:string){
+    this.router.navigate(['/order/edit-product-order/'+ orderDetailId]);
+  }
+
 
   rejeactOrder(){
     Swal.fire({

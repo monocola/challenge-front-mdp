@@ -34,7 +34,7 @@
         <td> {{ o.unityPrice | currency  }}</td>
         <td> {{ o.totalAmount | currency  }}</td>
         <td  style="text-align: center;" *ngIf="orderDetail.state == 1">
-            <button style="margin-right: 10px;" type="button" class="btn btn-sm btn-primary" >Editar</button>
+            <button style="margin-right: 10px;" type="button" (click)="editProductOrder(o.orderDetailId)" class="btn btn-sm btn-primary" >Editar</button>
             <button type="button" class="btn btn-sm btn-danger" (click)="deleteProduct(o.orderDetailId)">Eliminar</button>
         </td>
         </tr>
